@@ -1,0 +1,22 @@
+# pytest core
+pytest>=7.0.0
+pytest-html>=3.0.0
+pytest-xdist>=3.0.0
+pytest-timeout>=2.0.0
+pytest-rerunfailures>=12.0
+
+# allure reporting
+allure-pytest>=2.13.0
+
+# network connections
+paramiko>=3.0.0
+telnetlib3>=2.0.0
+
+# web automation - Playwright
+playwright>=1.40.0
+
+# configuration
+PyYAML>=6.0
+
+# utilities
+python-dotenv>=1.0.0

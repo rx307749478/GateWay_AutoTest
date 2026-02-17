@@ -1,0 +1,69 @@
+# Device Configuration for GateWay AutoTest
+# Copy this file and modify with your actual device settings
+
+devices:
+  # Default ONT device configuration
+  default:
+    # Connection settings
+    host: "192.168.1.1"
+    port: 22
+    protocol: "ssh"  # ssh or telnet
+
+    # Authentication
+    username: "admin"
+    password: "admin"
+
+    # Connection timeout in seconds
+    timeout: 30
+
+    # Command prompt pattern for detecting command completion
+    prompt_pattern: "#|>|$"
+
+    # Auto reconnect on connection loss
+    auto_reconnect: true
+    max_reconnect_attempts: 3
+
+  # Secondary device for testing
+  secondary:
+    host: "192.168.1.2"
+    port: 22
+    protocol: "ssh"
+    username: "admin"
+    password: "admin"
+    timeout: 30
+
+# Web UI Configuration
+web:
+  # Web interface URL
+  url: "http://192.168.1.1"
+
+  # Browser settings
+  browser: "chromium"  # chromium, firefox, webkit
+  headless: false
+
+  # Page load timeout in seconds
+  page_timeout: 30
+
+  # Element wait timeout in seconds
+  element_timeout: 10
+
+  # Screenshot settings
+  screenshot_on_failure: true
+  screenshot_dir: "logs/screenshots"
+
+  # Authentication
+  username: "admin"
+  password: "admin"
+
+# Test environment settings
+environment:
+  name: "development"
+  description: "Local development environment"
+
+  # Network settings
+  lan_interface: "eth0"
+  wan_interface: "eth1"
+
+  # WiFi settings
+  wifi_24g_interface: "wlan0"
+  wifi_5g_interface: "wlan1"

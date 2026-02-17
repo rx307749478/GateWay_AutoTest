@@ -1,0 +1,79 @@
+# Test Cases Configuration for GateWay AutoTest
+
+# Functional Tests Configuration
+functional:
+  # Connectivity test settings
+  connectivity:
+    ping_count: 4
+    ping_target: "8.8.8.8"
+    expected_packet_loss: 0
+
+  # WAN configuration tests
+  wan:
+    test_pppoe: true
+    test_dhcp: true
+    test_static: true
+    connection_timeout: 60
+
+  # LAN configuration tests
+  lan:
+    test_dhcp_server: true
+    test_static_ip: true
+    dhcp_pool_start: "192.168.1.100"
+    dhcp_pool_end: "192.168.1.200"
+
+  # WiFi configuration tests
+  wifi:
+    test_24g: true
+    test_5g: true
+    test_ssid_broadcast: true
+    test_security_modes:
+      - "WPA2-PSK"
+      - "WPA3-PSK"
+
+# Performance Tests Configuration
+performance:
+  # Throughput test settings
+  throughput:
+    duration: 60  # seconds
+    target_speed_mbps: 1000
+    acceptable_variance: 10  # percent
+
+  # Latency test settings
+  latency:
+    packet_count: 100
+    target_host: "8.8.8.8"
+    max_acceptable_latency_ms: 50
+
+  # Stress test settings
+  stress:
+    concurrent_connections: 100
+    duration: 300  # seconds
+
+# Stability Tests Configuration
+stability:
+  # Long run test settings
+  long_run:
+    duration: 3600  # seconds (1 hour)
+    check_interval: 60  # seconds
+
+  # Reboot stability test settings
+  reboot:
+    reboot_count: 10
+    wait_after_reboot: 120  # seconds
+    check_services:
+      - "network"
+      - "wifi"
+      - "dhcp"
+
+# Test execution settings
+execution:
+  # Retry failed tests
+  retry_count: 2
+  retry_delay: 5  # seconds
+
+  # Parallel execution
+  parallel_workers: 4
+
+  # Test timeout
+  default_timeout: 300  # seconds
